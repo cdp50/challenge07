@@ -50,12 +50,16 @@ function cleanTypeList(list){
     const name = [];
 
     for (let i = 0; i < list.length; i++) {
-        if(list[i].taxon.preferred_common_name != null && list[i].taxon.preferred_common_name != undefined && list[i].sounds[0].file_url != null && list[i].sounds[0].file_url != undefined && !name.includes(list[i].taxon.preferred_common_name) ) {
+        if(list[i].taxon.preferred_common_name != null && list[i].taxon.preferred_common_name != undefined && list[i].sounds[0].file_url != null && list[i].sounds[0].file_url != undefined && !name.includes(list[i].taxon.preferred_common_name) && cleanList.length != 20 ) {
+
             cleanList.push([list[i].taxon.default_photo.url, list[i].taxon.preferred_common_name, list[i].sounds[0].file_url]);
             name.push(list[i].taxon.preferred_common_name);
         }
     }
     console.log(cleanList);
+    console.log(name);
+    console.log(name.length);
+    
     return cleanList;
 }
 
